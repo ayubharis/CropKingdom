@@ -76,10 +76,10 @@ public class CameraControl : MonoBehaviour
     }
 
     private void OnDisable(){
-        _inputs.Main.Move.started -= _ => MoveStarted();
-        _inputs.Main.Move.canceled -= _ => MoveCancelled();
-        _inputs.Main.TouchZoom.started -= _ => ZoomStarted();
-        _inputs.Main.TouchZoom.canceled -= _ => ZoomCancelled();
+        // _inputs.Main.Move.started -= _ => MoveStarted();
+        // _inputs.Main.Move.canceled -= _ => MoveCancelled();
+        // _inputs.Main.TouchZoom.started -= _ => ZoomStarted();
+        // _inputs.Main.TouchZoom.canceled -= _ => ZoomCancelled();
         _inputs.Disable();
     }
 
