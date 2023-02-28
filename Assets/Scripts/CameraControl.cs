@@ -4,6 +4,9 @@ using System.Collections.Generic;
 using UnityEngine;
 public class CameraControl : MonoBehaviour
 {
+
+    public static CameraControl _instance = null; public static CameraControl instance { get { return _instance; } }
+
     [SerializeField] private Camera _camera = null;
     [SerializeField] private float _moveSpeed = 50;
     [SerializeField] private float _moveSmooth = 5;
@@ -29,7 +32,10 @@ public class CameraControl : MonoBehaviour
     private Transform _pivot = null;
     private Transform _target = null;
 
+    private bool _building = false; public bool isPlacingBuilding {get {return _building;} set {_building = value;}}
+    private Vector3 _buildBasePosition = Vector3.zero;
     private void Awake(){
+        _instance = this;
         _inputs = new Controls();
         _root = new GameObject("CameraHelper").transform;
         _target = new GameObject("CameraTarget").transform;
@@ -84,15 +90,25 @@ public class CameraControl : MonoBehaviour
     }
 
     private void MoveStarted(){
-        _moving = true;
+        if(_building){
+            //_buildBasePosition = CameraScreenPositionToPlanePosition(_inputs.Main.PointerPosition.ReadValue<Vector2>());
+        }else{
+            _moving = true;
+        }
+        
     }
 
     private void MoveCancelled(){
-        _moving = false;
+        if(UI_Main.instance.isActive){
+            _moving = false;
+        }
+        
     }
 
     private void ZoomStarted(){
-        _zooming = true;
+        if(UI_Main.instance.isActive){
+            _zooming = true;
+        }
     }
 
     private void ZoomCancelled(){

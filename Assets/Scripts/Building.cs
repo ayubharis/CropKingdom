@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Building : MonoBehaviour
 {
+    public static Building _instance = null; public static Building instance { get { return _instance; } set {_instance = value;}}
+    
     [System.Serializable] public class Level {
         public int level = 1;
         public Sprite icon = null;
@@ -20,4 +22,25 @@ public class Building : MonoBehaviour
 
     private int _currentX = 0;
     private int _currentY = 0;
+    private int _X = 0;
+    private int _Y = 0;
+
+    public void PlacedOnGrid(int x, int y){
+        _currentX = x;
+        _currentY = y;
+        _X = x;
+        _Y = y;
+
+    }
+
+    public void RemovedFromGrid(){
+        _instance = null; 
+        CameraControl.instance.isPlacingBuilding = false;
+        Destroy(gameObject);
+
+    }
+
+    public void UpdatePositionOnGrid(){
+
+    }
 }
