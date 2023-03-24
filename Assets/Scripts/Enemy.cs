@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 public class Enemy : MonoBehaviour
@@ -85,7 +86,18 @@ public class Enemy : MonoBehaviour
             SpriteRenderer spriteRenderer = GetComponent<SpriteRenderer>();
 
             if (spriteRenderer.sprite != attackSprite) {
-                Player.cash -= 10;
+
+                if (Player.cashGen <= 0)
+                {
+                    EnemyController.spawner = false;
+                    Player.cashGen = 0;
+                    Player.cash -= 10;
+                }
+                else {
+                    Player.cashGen -= 10;
+                    UI_Buildings.buildings[UI_Buildings.buildings.Count - 1].RemovedFromGrid();
+                    UI_Buildings.buildings.RemoveAt(UI_Buildings.buildings.Count - 1);
+                }
             }
 
             if (spriteRenderer != null)

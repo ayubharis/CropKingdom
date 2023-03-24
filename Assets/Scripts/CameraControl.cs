@@ -11,7 +11,7 @@ public class CameraControl : MonoBehaviour
     [SerializeField] private float _moveSpeed = 50;
     [SerializeField] private float _moveSmooth = 5;
     [SerializeField] private float _zoomSpeed = 100000f;
-    [SerializeField] private float _zoomSmooth = 10;
+    [SerializeField] private float _zoomSmooth = 100;
 
     private bool _zooming = false;
     private bool _moving = false;
