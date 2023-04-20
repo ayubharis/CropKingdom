@@ -10,7 +10,7 @@ public class CameraControl : MonoBehaviour
     [SerializeField] private Camera _camera = null;
     [SerializeField] private float _moveSpeed = 50;
     [SerializeField] private float _moveSmooth = 5;
-    [SerializeField] private float _zoomSpeed = 100000f;
+    [SerializeField] private float _zoomSpeed = 1000f;
     [SerializeField] private float _zoomSmooth = 100;
 
     private bool _zooming = false;
@@ -99,16 +99,16 @@ public class CameraControl : MonoBehaviour
     }
 
     private void MoveCancelled(){
-        if(UI_Main.instance.isActive){
+        //if(UI_Main.instance.isActive){
             _moving = false;
-        }
+        //}
         
     }
 
     private void ZoomStarted(){
-        if(UI_Main.instance.isActive){
+        //if(UI_Main.instance.isActive){
             _zooming = true;
-        }
+        //}
     }
 
     private void ZoomCancelled(){

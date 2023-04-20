@@ -95,8 +95,8 @@ public class Enemy : MonoBehaviour
                 }
                 else {
                     Player.cashGen -= 10;
-                    UI_Buildings.buildings[UI_Buildings.buildings.Count - 1].RemovedFromGrid();
-                    UI_Buildings.buildings.RemoveAt(UI_Buildings.buildings.Count - 1);
+                    //UI_Buildings.buildings[UI_Buildings.buildings.Count - 1].RemovedFromGrid();
+                    //UI_Buildings.buildings.RemoveAt(UI_Buildings.buildings.Count - 1);
                 }
             }
 

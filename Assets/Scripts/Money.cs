@@ -8,11 +8,13 @@ public class Money : MonoBehaviour
 {
     public TextMeshProUGUI moneyText; // reference to the Text component of the textbox
     public TextMeshProUGUI cashgenText; // reference to the Text component of the textbox
+    public TextMeshProUGUI readyText; // reference to the Text component of the textbox
 
     // Update is called once per frame
     void Update()
     {
-        moneyText.text = "$" + Player.cash.ToString();
-        cashgenText.text = "+ $" + Player.cashGen.ToString();
+        moneyText.text = "Total: $" + Player.cash.ToString();
+        cashgenText.text = "+ $" + Player.cashGen.ToString()+"/sec";
+        readyText.text = "Well prepared for next wave!";
     }
 }
